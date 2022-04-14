@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller\publicControllers;
+namespace App\Http\Controllers\publicControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Album;
@@ -17,7 +17,7 @@ class AlbumsController extends Controller
      */
     public function show(Album $albums) 
     {
-        $allalbums = Album::latest()->paginate(10);
+        $allalbums = Album::latest()->paginate(8);
 
         return view('public_interface.gallery', compact('allalbums'));
     }

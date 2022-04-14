@@ -51,7 +51,7 @@
                             <div class="hs_content">
                                 <div class="vdtodt">
                                     
-                                    <span class="vdt14">{{@$image -> date_album}}</span>
+                                    <span class="vdt14"> {{\Carbon\Carbon::parse(@$image->date_album)->format('j F')}} </span>
                                 </div>
                                 <a href="{{route('gallery_single_view' , ['id' => @$image->id])}}" class="crse14s title900">{{@$image -> title}}</a>
                                 <p class="blog_des">{{@$image -> short_description}}</p>
@@ -118,27 +118,11 @@
                                         class="uil uil-arrow-right"></i></a>
                             </div>
                         </div> --}}
-                        <div class="main-p-pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            PRÉC
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">24</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="suivant">
-                                            NEXT
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        
                     </div>
+                </div>
+                <div class='mt-10 mb-50' style="float: right;">
+                    {{ $allalbums->links() }}
                 </div>
             </div>
         </div>

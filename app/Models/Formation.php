@@ -16,7 +16,7 @@ class Formation extends Model
      * @var array
      */
     protected $fillable = [
-        'designation', 'duree', 'prix1', 'prix2', 'prix3', 'type', 'matiere', 'matiere_id', 'niveau_id'
+        'designation', 'duree', 'prix1', 'prix2', 'prix3', 'type', 'matiere', 'matiere_id', 'niveau_id','image','created_at', 'updated_at',
     ];
 }
 

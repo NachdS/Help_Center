@@ -51,19 +51,8 @@
              <a href="{{url('/event')}}">Événements</a>
            </li>
            <li>
-               <a href="#!">Nos formations</a>
-               <ul class="nav-dropdown">
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 1</a>
-                 </li>
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 2</a>
-                 </li>
-                 <li>
-                   <a href="{{url('/search_result_formation')}}">formation 3</a>
-                 </li>
-               </ul>
-           </li>
+            <a href="{{url('/search_result_formation')}}">Formations</a>
+          </li>
            <li>
              <a href="{{url('/news')}}">Actualités</a>
            </li>
@@ -77,9 +66,18 @@
            <li>
             <a href="{{url('/about_us')}}">A propos de nous</a>
           </li>
-           <li>
-               <a href="{{url('/contact_us')}}">Contact</a>
-             </li>
+          <li>
+              <a href="{{url('/contact_us')}}">Contact</a>
+         </li>
+         <li>
+             
+              @auth
+                <a href="{{ route('logout') }}">se déconnecter</a>
+              @else
+                <a href="{{ route('login') }}">Connecter</a>
+              @endauth
+             
+          </li>
          </ul>
        </nav>
      </div>
@@ -89,4 +87,4 @@
      @yield('content_public')
      {{-- end global public interface content --}}
     
-   @endsection
+@endsection

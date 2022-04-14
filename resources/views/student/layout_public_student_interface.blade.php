@@ -58,7 +58,7 @@
                         <div class="profile_link">
                             <img src="{{ asset('assets/images/left-imgs/img-6.jpg') }}" alt="">
                             <div class="pd_content">
-                                <h6>Zoena Singh</h6>
+                                <h6></h6>
                                 <p>Hi! Sir, How are you. I ask you one thing please explain it this video price.</p>
                                 <span class="nm_time">2 min ago</span>
                             </div>
@@ -134,15 +134,18 @@
                         <div class="profile_link">
                             <img src="{{ asset('assets/images/hd_dp.jpg') }}" alt="">
                             <div class="pd_content">
+                                @auth
                                 <div class="rhte85">
-                                    <h6>Joginder Singh</h6>
+                                    <h6>{{ Auth::user()->name }}</h6>
                                     <div class="mef78" title="Verify">
                                         <i class='uil uil-check-circle'></i>
                                     </div>
                                 </div>
+                                
                                 <span><a href="https://gambolthemes.net/cdn-cgi/l/email-protection"
                                         class="__cf_email__"
-                                        data-cfemail="0364626e616c6f3a373043646e626a6f2d606c6e">[email&#160;protected]</a></span>
+                                        data-cfemail="0364626e616c6f3a373043646e626a6f2d606c6e">{{ Auth::user()->email }}</a></span>
+                                @endauth
                             </div>
                         </div>
                         <a href="{{url('/student_profile_view')}}" class="dp_link_12">View Instructor Profile</a>
@@ -160,7 +163,15 @@
                     <a href="setting.html" class="item channel_item">Setting</a>
                     <a href="help.html" class="item channel_item">Help</a>
                     <a href="feedback.html" class="item channel_item">Send Feedback</a> --}}
-                    <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                    <a href="#">
+                    @auth
+                        <a href="{{ route('logout') }}" class="item channel_item">se déconnecter</a>
+                      @else
+                        <a href="{{ route('login') }}">Connecter</a>
+                      @endauth
+                    </a>
+
+
                 </div>
             </li>
         </ul>
@@ -174,12 +185,19 @@
             <ul>
             <li class="menu--item avatar">
             <div class="menu--link ">
+                
+                @php
+                 $user = App\Models\Candidat::join('users', 'candidats.id', 'users.id')
+                ->where('candidats.id', Auth::user()->id)
+                 ->first(); 
+                @endphp
+                
                 <div class="tutor_img">
-                    <a href="{{url('/student_profile_view')}}"><img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}" alt=""></a>
+                    <a href="{{url('/student_profile_view')}}"><img src="{{ asset(@$user->avatar) }}" alt=""></a>
                 </div>
                 <div class="tutor_content_dt">
                     <div class="tutor150">
-                        <a href="{{url('/student_profile_view')}}"  class="tutor_name">John Doe</a>
+                        <a href="{{url('/student_profile_view')}}"  class="tutor_name">{{ auth()->user()->name }}</a>
                         <div class="mef78" title="Verify">
                             <i class="uil uil-check-circle"></i>
                         </div>
@@ -206,9 +224,9 @@
                 </li>  
                 
                 <li class="menu--item">
-                    <a href="{{url('/student_search_result')}}" class="menu--link" title="Cours">
+                    <a href="{{url('/student_search_result')}}" class="menu--link" title="Formations">
                         <i class='uil uil-book-alt menu--icon'></i>
-                        <span class="menu--label">Cours</span>
+                        <span class="menu--label">Formations</span>
                     </a>
                 </li>  
                 
