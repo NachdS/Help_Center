@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
-use App\Models\Enseignant;
-use Illuminate\Http\Request;
+use App\Models\Candidat;
+use App\Models\Groupe;
 use Illuminate\Support\Facades\Auth;
-use App\Models\salle;
-use App\Models\Horaire;
-use App\Models\Seance;
 
 class SheduleController extends Controller
 {
-     public function show() {
-    
-        $enseignant = Enseignant::find(@Auth::user()->id);
-        
-       
-        return view('student.student_list_eleve', compact('amisGroupe'));
-} 
+    public function show()
+    {
+        $groupes = Groupe::join('inscriptions', 'inscriptions.groupe_id', '=', 'groupes.id')
+            ->where('inscriptions.candidat_id', @Auth::user()->id)
+            ->get();
+       // $candidat = Candidat::find(@Auth::user()->id);
+
+        return view('student.student_schedule', compact('groupes'));
+    }
 
 }
+
+

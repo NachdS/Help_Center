@@ -58,6 +58,11 @@
       href="/sites/default/files/favicon.ico"
       type="image/vnd.microsoft.icon"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
 
 
 </head>
@@ -86,6 +91,14 @@
   <script src="{{ asset('assets/js/function.js') }}"></script>
   <script src="{{ asset('assets/js/datepicker.min.js') }}"></script>
   <script src="{{ asset('assets/js/i18n/datepicker.en.js') }}"></script>
+  <script>
+    function chapitreInfo(chap , cour) {
+      console.log(chap.designation)
+     document.getElementById("designation").innerHTML=chap.designation;
+     document.getElementById("description").innerHTML=chap.description;
+      }
+    
+  </script> 
   <script>$(document).ready(function () {
       $('#dtBasicExample').DataTable();
       $('.dataTables_length').addClass('bs-select');
@@ -187,14 +200,64 @@
   });
   
   </script>
-  <script>
+   <script>
     function playme(vid) {
     document.getElementById("video1").src = 'http://127.0.0.1/nachds-center/storage/app/public/'+vid;
-    /* document.getElementById("description").value(desc);
-    document.getElementById("designation").value(des); */
     }
-  </script>
+  </script> 
+    <script>
+     function getvalue() {
+      console.log(event.target.value);
+      }
+    </script> 
 
+{{-- showcourinfo --}}
+
+   <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+   <script>
+     new TomSelect('#select-role', {
+       maxItems: 3,
+     });
+   </script>
+
+<!-- <script>
+   function toggle_form_element(select) {
+   var elements =[];
+   var divSelect = select.value;
+   var value = $('timetable' + value).attr('id');
+   console.log(value);
+   document.querySelectorAll()
+   elements.push((document.getElementById("timetable").value);
+   for (var i = 0; i < elements.length; i++) {
+       if (i == divSelect) {
+           elements[i].style.display = "block";
+       } else {
+           elements[i].style.display = "none";
+       }
+   }
+}
+</script> -->
+
+<script>
+function toggle_form_element(select) {
+  var divSelect = select.value;
+  console.log(select);
+
+  var id_groupe  = document.getElementById('groupe_id').value;
+
+  //var elements= document.getElementById("timetable"+ id_groupe);
+  
+  var elements= document.getElementsByName("timetable");
+  console.log(elements)
+  for (var i = 0; i < elements.length; i++) {
+      if (elements[i].id == "timetable_"+id_groupe) {
+          elements[i].style.display = "block";
+      } else {
+          elements[i].style.display = "none";
+      }
+  }
+}
+</script>
 
 
 </body>
@@ -202,3 +265,8 @@
 <!-- Copyright  contact_us.html Nachd IT 13:31:52 GMT -->
 
 </html>
+
+
+
+
+
