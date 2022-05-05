@@ -39,7 +39,9 @@
                                  <div class="vew120 frc123">
                                      <div class="vdtodt55">
                                          <span class="vdt24">Par {{ $event->publier }}</span>
-                                         <span class="vdt24">{{ $event->created_at->format('j F, Y') }}</span>
+                                         <span class="vdt24">
+                                             {{ is_null($event->created_at) ? '' : $event->created_at->format('j F, Y') }}
+                                         </span>
                                      </div>
                                  </div>
                                  <div class="vew120 mt-35 mb-30">
@@ -49,7 +51,7 @@
                              </div>
                          @endforeach
                      @endif
-                     
+
                  </div>
              </div>
          </div>

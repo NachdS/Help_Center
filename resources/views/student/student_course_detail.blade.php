@@ -70,7 +70,7 @@
                                             </ul>
                                         </div>
                                         @foreach ($cours as $cour)
-                                            <div id="accordion{{ $cour->id }}"
+                                            <div id="accordion"
                                                 class="ui-accordion ui-widget ui-helper-reset">
                                                 <a href="javascript:void(0)"
                                                     class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
@@ -87,7 +87,7 @@
                                                 </a>
 
                                                 <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
-                                                    id="accordion2">
+                                                    id="accordion">
                                                     @foreach (@$cour->chapitres as $chap)
                                                         <div class="panel panel-default"
                                                             style="margin-bottom: 0px; border-bottom: 1px solid #efefef;">
@@ -112,7 +112,7 @@
                                                                         <?php $ext = pathinfo(@$file->download_link, PATHINFO_EXTENSION); ?>
                                                                         <div id="collapseOne2_{{ @$chap->id }}"
                                                                             class="panel-collapse collapse"
-                                                                            data-parent="#accordion2">
+                                                                            data-parent="#accordion">
                                                                             <div class="panel-body"
                                                                                 style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-left: none; border-top: 1px solid #efefef; border-bottom: none; padding: 10px;">
                                                                                 <a class="fileType" target="_blank"
