@@ -116,7 +116,7 @@
                                                                             <div class="panel-body"
                                                                                 style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-left: none; border-top: 1px solid #efefef; border-bottom: none; padding: 10px;">
                                                                                 <a class="fileType" target="_blank"
-                                                                                href="{{env('APP_STORAGE')}}{{$file->download_link}}"
+                                                                                href="{{env('APP_STORAGE')}}{{@$file->download_link}}"
                                                                                     data-file-name="{{@$file->original_name }}">
                                                                                     @if ($ext == 'pdf')
                                                                                         <div class="img_settings_container"
@@ -125,9 +125,8 @@
                                                                                             <a href="{{$s}}{{$file->download_link}}"
                                                                                                 target="_blank">
 
-                                                                                                {{$file->original_name}}
-                                                                                               {{--  {{ substr(@$file, 10) }} --}}
-                                                                                               
+                                                                                                {{@$file->original_name}}
+                                                                                              
                                                                                             </a>
                                                                                         </div>
                                                                                     @elseif($ext == 'doc' || $ext == 'docm' || $ext == 'docx')
@@ -136,7 +135,7 @@
                                                                                             <i class="fas fa-file-word"></i>
                                                                                             <a href="{{Storage::get(@$file) }}"
                                                                                                 target="_blank">
-                                                                                                {{ substr(@$file, 10) }}</a>
+                                                                                                {{@$file->original_name}}</a>
                                                                                         </div>
                                                                                     @elseif($ext == 'ptt' || $ext == 'pptx')
                                                                                     <div class="img_settings_container"
@@ -144,13 +143,13 @@
                                                                                     <i class="fas fa-file-powerpoint"></i>
                                                                                     <a href="{{Storage::get(@$file)}}"
                                                                                         target="_blank">
-                                                                                        {{ substr(@$file, 10) }}</a>
+                                                                                        {{@$file->original_name}}</a>
                                                                                 </div>
                                                                                     @elseif($ext == 'mp4' || $ext == 'mp4')
                                                                                         <div>
                                                                                             <a href="#" id="playvideo"
-                                                                                                onclick="playme('<?php echo $file; ?>')">
-                                                                                                {{ substr(@$file, 10) }}
+                                                                                                onclick="playme('<?php echo $file->download_link; ?>')">
+                                                                                                {{@$file->original_name}}
                                                                                         </div>
                                                                                     @else
                                                                                         <div class="img_settings_container"
