@@ -91,12 +91,12 @@
                                                  <img src="{{ asset($formation->image) }}" alt="">
                                                  <div class="course-overlay">
                                                     <div class="badge_seller">{{ @$formation->matiere }}</div>
-                                                     <!--<div class="crse_revues">
-                                                        <i class="uil uil-star"></i>4.5
-                                                    </div>-->
-                                                     <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                    <div class="crse_revues">
+                                                        <i class="uil uil-dollar-sign"></i>{{@$formation->prix1}} dt
+                                                    </div>
+                                                     <span class="play_btn1"><!--<i class="uil uil-play">--></i></span>
                                                      <div class="crse_timer">
-                                                         {{ @$formation->duree }} période
+                                                         {{ @$formation->duree }} Jours
                                                      </div>
                                                  </div>
                                              </a>
@@ -113,9 +113,8 @@
                                                  <p class="cr1fot">{{ @$formation->type }}</p>
                                                  <div class="auth1lnkprce">
                                                      <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                     <div class="prce142">{{ @$formation->prix1 }}DT</div>
-                                                     <!--<button class="shrt-cart-btn" title="cart"><i
-                                                            class="uil uil-shopping-cart-alt"></i></button>-->
+                                                     {{-- <div class="prce142">{{ @$formation->prix1 }}DT</div> --}}
+                                                 <button class="shrt-cart-btn" title="cart" ><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
                                                  </div>
                                              </div>
                                          </div>

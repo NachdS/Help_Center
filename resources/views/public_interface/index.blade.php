@@ -67,7 +67,7 @@
                          @include('global_common/bloc_menuicon')
 
                          <div class="section3125 mt-30">
-                             <h4 class="item_title">Video</h4>
+                             <h4 class="item_title">Vidéos publicitaires</h4>
                              <!--<a href="#" class="see150">Voir tout</a>-->
                              <div class="la5lo1">
                                  <div class="owl-carousel featured_courses owl-theme">
