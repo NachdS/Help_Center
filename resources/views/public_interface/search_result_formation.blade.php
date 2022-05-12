@@ -91,10 +91,10 @@
                                                  <img src="{{ asset($formation->image) }}" alt="">
                                                  <div class="course-overlay">
                                                     <div class="badge_seller">{{ @$formation->matiere }}</div>
-                                                    <div class="crse_revues">
-                                                        <i class="uil uil-dollar-sign"></i>{{@$formation->prix1}} dt
+                                                    <div class="crse_revues" style="background-color: #ffecec; width: fit-content;">
+                                                        <i class="uil uil-dollar-sign" ></i><strong>{{@$formation->prix1}} dt
                                                     </div>
-                                                     <span class="play_btn1"><!--<i class="uil uil-play">--></i></span>
+                                                     
                                                      <div class="crse_timer">
                                                          {{ @$formation->duree }} Jours
                                                      </div>
@@ -111,11 +111,16 @@
                                                  <a class="crse14s title900">{{ @$formation->designation }}</a>
                                                  <!--<a href="#" class="crse-cate"></a>-->
                                                  <p class="cr1fot">{{ @$formation->type }}</p>
+                                                 @auth
                                                  <div class="auth1lnkprce">
-                                                     <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                     {{-- <div class="prce142">{{ @$formation->prix1 }}DT</div> --}}
-                                                 <button class="shrt-cart-btn" title="cart" ><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
-                                                 </div>
+                                                    <button class="shrt-cart-btn" title="cart" ><a href="{{ route('make_new_payement')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
+                                                </div>
+                                                @endauth
+                                                @guest
+                                                <div class="auth1lnkprce">
+                                                    <button class="shrt-cart-btn" title="cart" ><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
+                                                    </div>
+                                                @endguest
                                              </div>
                                          </div>
                                      @endforeach

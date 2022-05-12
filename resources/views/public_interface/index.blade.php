@@ -78,11 +78,12 @@
                                              <div class="item">
                                                  <div class="fcrse_1 mb-20">
                                                      <a href="{{ route('video_pub_detail', ['id' => @$video->id]) }}"
-                                                         class="fcrse_img" style="height: 220px;">
-                                                         <video style="max-height: -webkit-fill-available;contain: strict;width: -webkit-fill-available !important; frameborder=0;"
+                                                         class="fcrse_img">
+                                                         <!-- <video style="max-height: -webkit-fill-available;contain: strict;width: -webkit-fill-available !important; frameborder=0;"
                                                              class="video-fluid" autoplay loop muted>
                                                              <source src="{{ asset(@$video->file) }}" type="video/mp4" />
-                                                         </video>
+                                                         </video> -->
+                                                         <img src="{{ asset(@$video->cover) }}" />
                                                          <div class="course-overlay">
                                                              <span class="play_btn1" style="padding: 11px 13px;">
                                                                  <i class="uil uil-play"></i></span>
@@ -116,7 +117,7 @@
                                      @if (@$allenseignants)
                                          @foreach (@$allenseignants as $enseignant)
                                              <div class="item">
-                                                 <div class="fcrse_1 mb-20">
+                                                 <div class="fcrse_1">
                                                      <div class="tutor_img">
                                                          <a href="instructor_profile_view.html"><img
                                                                  src="{{ asset(@$enseignant->avatar) }}" alt="" /></a>

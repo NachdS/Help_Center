@@ -64,7 +64,6 @@
                                 <h2>Notre achievement </h2>
                                 <p>Cursus est le leader de l'enseignement et de l'apprentissage, connectant des centaines
                                     d'élèves aux compétences dont ils ont besoin pour réussir.</p>
-                                <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt="">
                             </div>
                         </div>
 
@@ -119,7 +118,7 @@
                         <div class="col-md-6 mt-50">
                             <div class="title478">
                                 <h2>Notre équipe</h2>
-                                <!-- <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt=""> -->
+                                <img class="line-title" src="{{ asset('assets/images/line.svg') }}" alt="">
                                 <p>
                                 <p>{{ @$allaboutUs->presentation }}</p>
                                 </p>

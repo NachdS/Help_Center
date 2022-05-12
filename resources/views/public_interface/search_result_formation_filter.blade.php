@@ -471,7 +471,7 @@
                                  enctype="multipart/form-data">
                                  @csrf
                                  <div class="col-lg-12 col-md-4 mt-50">
-                                     <select class="form-control" id="grpID2" name="niveau_id">
+                                     <select class="form-control" name="niveau_id">
                                          <option value="">Choisir niveau ...</option>
                                          @foreach (App\Models\Niv::all() as $niv)
                                              <option value="{{ $niv->id }}">
@@ -481,7 +481,7 @@
                                  </div>
 
                                  <div class="col-lg-12 col-md-4" style="margin-top: 5px">
-                                     <select class="form-control" class="form-controle" id="matID2" name="matiere_id">
+                                     <select class="form-control" class="form-controle"  name="matiere_id">
                                          <option value="">Choisir Matière ...</option>
                                          @foreach (App\Models\Matiere::all() as $mat)
                                              <option value="{{ $mat->id }}">
@@ -491,7 +491,7 @@
                                  </div>
 
                                  <div class="col-lg-12 col-md-4" style="margin-top: 5px">
-                                     <select class="form-control" class="form-controle" id="matID2" name="type">
+                                     <select class="form-control" class="form-controle" i name="type">
                                          <option value="">Choisir type ...</option>
                                          @foreach (App\Models\Formation::all() as $form)
                                              <option value="{{ $form->type }}">
@@ -525,10 +525,10 @@
                                                  <img src="{{ asset($formation->image) }}" alt="">
                                                  <div class="course-overlay">
                                                      <div class="badge_seller">{{ @$formation->matiere }}</div>
-                                                     <div class="crse_revues">
-                                                            <i class="uil uil-dollar-sign"></i>{{@$formation->prix1}} dt
-                                                     </div>
-                                                     <span class="play_btn1"><!-- <i class="uil uil-play"> --></i></span>
+                                                     <div class="crse_revues" style="background-color: #ffecec; width: fit-content;">
+                                                        <i class="uil uil-dollar-sign" ></i>{{@$formation->prix1}} dt
+                                                    </div>
+                                                    
                                                      <div class="crse_timer">
                                                          {{ @$formation->duree }} Jours
                                                      </div>
@@ -540,15 +540,18 @@
                                                      <span
                                                          class="vdt14">{{ is_null($formation->created_at) ? '' : $formation->created_at->format('j F, Y') }}</span>
                                                  </div>
-                                                 <a class="crse14s title900">{{ @$formation->designation }}</a>
+                                                 <a class="crse14s title900" >{{ @$formation->designation }}</a>
                                                  <!--<a href="#" class="crse-cate"></a>-->
                                                  <p class="cr1fot">{{ @$formation->type }}</p>
+                                                 @if (\Auth::user()->id)
                                                  <div class="auth1lnkprce">
-                                                     <!--<p class="cr1fot">Par M.<a href="#">John Doe</a></p>-->
-                                                     {{-- <div class="prce142">{{ @$formation->prix1 }}DT</div> --}}
-                                                     <button class="shrt-cart-btn" title="cart" style="width: 100%;" class="btn btn-default steps_btn"
-                                                     value="Find" class="btn btn-success"><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
+                                                 <button class="shrt-cart-btn" title="cart" ><a href="{{ route('sign_in_student')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
                                                  </div>
+                                                 @else
+                                                 <div class="auth1lnkprce">
+                                                    <button class="shrt-cart-btn" title="cart" ><a href="{{ route('make_new_payement')}}" class="prce142" >Participer<i class="uil uil-arrow-right"></i></a></button>
+                                                    </div>
+                                                @endif
                                              </div>
                                              
                                          </div>
