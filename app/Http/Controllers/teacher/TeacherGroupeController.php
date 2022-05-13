@@ -42,4 +42,10 @@ class TeacherGroupeController extends Controller
 
         return view('teacher.group', compact('allGroupe', 'totalGroupes', 'totalelevesGroupe'));
     }
+
+    public function showById($id)
+    {
+        $condidat = Candidat::where('id', $id)->get();
+        return view('teacher.list_eleve.blade', compact('condidat'));
+    }
 }
