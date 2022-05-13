@@ -45,7 +45,7 @@ class TeacherGroupeController extends Controller
 
     public function showById($id)
     {
-        $condidat = Candidat::where('id', $id)->get();
+        $condidat = User::where('id', $id)->get();
         return view('teacher.list_eleve.blade', compact('condidat'));
     }
 }
