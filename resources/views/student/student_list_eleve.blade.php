@@ -15,7 +15,7 @@
                                         @foreach ($amisGroupe as $amis)
                                             <div class="col-md-2">
                                                 <div class="stream_1 mb-30">
-                                                    <a href="live_output.html" class="stream_bg">
+                                                    <a href="#" class="stream_bg">
                                                         <img src="{{ asset('assets/images/left-imgs/img-1.jpg') }}"
                                                             alt="">
                                                         <h4>{{ $amis->name }}</h4>
